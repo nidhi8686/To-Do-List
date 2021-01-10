@@ -128,7 +128,5 @@ app.post('/newList',(req,res)=>{
     res.redirect('/'+list);
 })
 
-// const PORT= process.env.PORT || 3000;
-// app.listen(PORT,console.log(`server is running at ${PORT}`));
-app.listen(3000,'192.168.1.6');
-// mongo "mongodb+srv://to-do-list.0zthx.mongodb.net/<dbname>" --username admin-nidhi
+const PORT= process.env.PORT || 3000;
+app.listen(PORT,console.log(`server is running at ${PORT}`));
