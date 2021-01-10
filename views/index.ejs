@@ -1,0 +1,35 @@
+<%- include('header') -%>
+<div class="container" style="margin-top: 4%;">
+    <div class="container color-purple w-30 rounded mt-5 mb-3 px-2 shadow-lg">
+        <h1 class="text-light font-sm my-5 py-2 text-center"><%= List_type %></h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 bg-light pt-2 shadow-lg">
+
+                <% newListItems.forEach((item) =>{ %>
+                <form method="post" action="/delete">
+                    <div class="d-flex bottom-line">
+                        <input type="checkbox" class="mr-4 my-3" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+                        <p class="w-100 my-2"><%= item.name %></p>
+                    </div>
+                    <input type="hidden" name="listName" value=<%= List_type %>></input>
+                </form>
+                <% }) %>
+
+                <form method="post" action="/">
+                    <div class="container p-0 d-flex radius">
+                        <input type="text" name="newItem" placeholder="New Item" autocomplete="off"
+                            class="line py-2 w-75 bg-light form-control form-control-lg mx-1">
+                        <button class="rounded-circle btn color-purple m-2 text-light" type="submit" name="list"
+                            value=<%= List_type %>>+</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>
